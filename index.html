@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff3e8">
+  <title>Người dẫn đường — Tình cảm thầy trò</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#28334a;background:#fff8f1;font-synthesis:none;text-rendering:optimizeLegibility}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0,#fff 0,#fff8f1 62%,#f8eadd 100%)}
+    .app{max-width:1100px;margin:auto;padding:28px 20px 36px}.top{text-align:center;margin:0 auto 18px}.eyebrow{font-size:.77rem;letter-spacing:.17em;font-weight:800;color:#b96b62;text-transform:uppercase}.top h1{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.3rem);margin:7px 0;color:#35415c}.top p{margin:0;color:#697187}
+    .stage{height:min(58vw,510px);min-height:330px;position:relative;overflow:hidden;border:8px solid #fff;border-radius:26px;box-shadow:0 18px 55px #60422c24;background:linear-gradient(#bce9f0 0 59%,#a7d99c 59%);isolation:isolate;transition:background 1s ease}
+    .stage::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#fff8 0%,transparent 40%);z-index:-1}
+    .sun{position:absolute;width:72px;height:72px;border-radius:50%;background:#ffe7a3;top:8%;right:12%;box-shadow:0 0 45px #ffe7a388}
+    .cloud{position:absolute;width:105px;height:29px;border-radius:30px;background:#ffffffa8;top:15%;left:13%;animation:drift 18s ease-in-out infinite alternate}.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%;bottom:8px}.cloud:before{width:44px;height:44px;left:15px}.cloud:after{width:34px;height:34px;left:48px}@keyframes drift{to{transform:translateX(65px)}}
+    .backdrop{position:absolute;inset:0;pointer-events:none}.board{position:absolute;top:12%;left:50%;transform:translateX(-50%);width:45%;height:34%;background:#3d755e;border:9px solid #a56d42;border-radius:9px;box-shadow:0 5px 0 #805130;color:#fff4d8;display:grid;place-items:center;text-align:center;padding:10px;font-family:Georgia,serif;font-size:clamp(14px,2.1vw,24px);font-weight:bold;line-height:1.35;text-shadow:0 2px 3px #183e31;opacity:0;transition:opacity .7s}
+    .ground{position:absolute;bottom:0;height:39%;width:100%;background:linear-gradient(#8fc97d,#6eaf68);z-index:-1}.floor{position:absolute;bottom:0;height:41%;width:100%;background:repeating-linear-gradient(90deg,#d9b78c 0 80px,#cfaa7f 81px 83px);opacity:0;transition:opacity .7s;z-index:-1}
+    .character{position:absolute;bottom:13%;width:clamp(100px,17vw,160px);height:clamp(190px,32vw,290px);transition:left .85s ease,transform .6s ease;filter:drop-shadow(0 11px 6px #34402a30);animation:bob 3s ease-in-out infinite;transform-origin:bottom center}.character:nth-of-type(2){animation-delay:.4s}@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -4px}}
+    .person{position:absolute;inset:0}.head{position:absolute;left:25%;top:0;width:50%;height:36%;border-radius:47% 47% 44% 44%;background:#f3c9a9;border:2px solid #d59f7e;z-index:2;box-shadow:inset -7px -5px #dcae91}.hair{position:absolute;left:22%;top:-2%;width:56%;height:19%;border-radius:55% 55% 25% 25%;background:#24212a;z-index:3}.hair.long:after{content:"";position:absolute;right:-5px;top:8px;width:19px;height:85px;background:#24212a;border-radius:0 0 15px 15px;z-index:-1}.eye{position:absolute;top:45%;width:6px;height:8px;background:#3c2d2b;border-radius:50%}.eye.left{left:31%}.eye.right{right:31%}.smile{position:absolute;top:66%;left:40%;width:20%;height:10px;border-bottom:2px solid #a95458;border-radius:50%}.glasses .head:before,.glasses .head:after{content:"";position:absolute;top:42%;width:23px;height:17px;border:2px solid #36465c;border-radius:50%}.glasses .head:before{left:13%}.glasses .head:after{right:13%}.torso{position:absolute;left:13%;top:32%;width:74%;height:39%;border-radius:22px 22px 9px 9px;background:#fff;border:2px solid #d9e3eb;z-index:1}.torso.blue{background:#5b94c5;border-color:#457da9}.tie{position:absolute;left:45%;top:4%;width:13%;height:65%;background:#343951;clip-path:polygon(20% 0,80% 0,100% 20%,55% 100%,0 20%)}.scarf{position:absolute;left:25%;top:0;width:50%;height:29%;background:#d92737;clip-path:polygon(0 0,100% 0,60% 100%,40% 100%);z-index:3}.scarf:after{content:"";position:absolute;right:4%;top:45%;width:34%;height:70%;background:#c91e30;transform:rotate(-12deg)}.dress{position:absolute;left:5%;top:31%;width:90%;height:67%;background:linear-gradient(90deg,#aa70bd,#d494cf 50%,#b77ac2);clip-path:polygon(23% 0,77% 0,100% 100%,0 100%);border-radius:15px 15px 8px 8px;z-index:1}.dress:after{content:"";position:absolute;left:49%;height:100%;width:2px;background:#efd1eb;opacity:.65}.arm{position:absolute;top:39%;left:3%;width:19%;height:35%;border-radius:20px;background:#f3c9a9;transform:rotate(15deg);z-index:0}.arm.right{left:auto;right:3%;transform:rotate(-15deg)}.legs{position:absolute;left:26%;bottom:0;width:48%;height:30%;background:#233e67;border-radius:5px 5px 10px 10px;z-index:0}.legs:after{content:"";position:absolute;left:50%;height:100%;width:5px;background:#172e52}.teacher .legs{display:none}.teacher .dress{height:67%}.teacher.male .torso{height:43%}.student .torso{height:36%}.student .legs{height:33%}.person-label{position:absolute;bottom:-29px;width:100%;text-align:center;font-size:13px;font-weight:800;color:#36415a;text-shadow:0 1px white}
+    .desk{position:absolute;bottom:13%;left:50%;transform:translateX(-50%);width:48%;height:8%;background:#bd8152;border:5px solid #99633d;border-radius:9px;opacity:0;transition:opacity .4s}.desk:after{content:"";position:absolute;top:90%;left:12%;width:8px;height:65px;background:#805336;box-shadow:250px 0 #805336}
+    .bench{position:absolute;bottom:11%;left:15%;width:40%;height:8%;background:#a87351;border-radius:20px;opacity:0;transition:opacity .4s}
+    .flowers{position:absolute;bottom:28%;left:50%;font-size:clamp(26px,4vw,48px);opacity:0;transform:translateX(-50%) scale(.6);transition:all .6s}.heart{position:absolute;right:15%;top:32%;font-size:45px;color:#ec6675;opacity:0;animation:heartbeat 1.4s infinite}@keyframes heartbeat{50%{transform:scale(1.2)}}
+    .subtitle{position:absolute;left:5%;right:5%;bottom:4%;min-height:62px;padding:13px 20px;background:#20283de8;border:1px solid #ffffff50;border-radius:14px;color:#fff;text-align:center;font-size:clamp(15px,2vw,22px);font-weight:650;line-height:1.4;text-shadow:0 1px 2px #000;display:grid;place-items:center;z-index:5;box-shadow:0 4px 16px #20283d40}.scene-tag{position:absolute;z-index:5;top:15px;left:17px;border-radius:20px;background:#fffdf0dd;padding:7px 12px;color:#45516a;font-size:12px;font-weight:800;letter-spacing:.04em}
+    .controls{max-width:950px;margin:17px auto 0;background:white;border-radius:18px;padding:16px 20px;box-shadow:0 7px 25px #60422c12}.button-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:10px 17px;font:700 14px inherit;cursor:pointer;background:#eeeaf6;color:#4f4a69;transition:transform .15s,background .15s}.btn:hover{transform:translateY(-2px);background:#e2d9f0}.btn.primary{background:#7d67a9;color:white}.btn:focus-visible,input:focus-visible{outline:3px solid #e5a56d;outline-offset:3px}.time{font-variant-numeric:tabular-nums;font-weight:750;color:#505a70;min-width:94px;text-align:center}.range{width:100%;margin:16px 0 3px;accent-color:#7d67a9;cursor:pointer}.hint{text-align:center;color:#85899a;font-size:12px;margin:8px 0 0}.credits{text-align:center;font-size:12px;color:#85899a;margin-top:14px}
+    .scene-1,.scene-4{background:linear-gradient(#bce9f0 0 59%,#a7d99c 59%)}.scene-2{background:linear-gradient(#a8d7f0 0 61%,#8bc578 61%)}.scene-3,.scene-4{background:linear-gradient(#b5dce7 0 59%,#91c788 59%)}.scene-5,.scene-6{background:linear-gradient(#f4d7b5 0 60%,#d6b384 60%)}
+    .scene-5 .floor,.scene-6 .floor{opacity:1}.scene-5 .ground,.scene-6 .ground{opacity:0}.scene-5 .board,.scene-6 .board{opacity:1}.scene-5 .desk{opacity:1}.scene-3 .bench,.scene-4 .bench{opacity:1}.scene-6 .flowers{opacity:1;transform:translateX(-50%) scale(1)}.scene-6 .heart{opacity:1}
+    @media(max-width:600px){.app{padding:18px 12px}.stage{height:430px;min-height:0;border-width:5px}.character{bottom:17%;width:105px;height:200px}.subtitle{left:3%;right:3%;bottom:3%;padding:11px 12px;min-height:70px}.board{width:64%;height:27%;top:9%;font-size:15px}.desk{width:67%}.bench{left:8%;width:55%}.scene-tag{top:9px;left:9px;font-size:10px}.controls{padding:14px 12px}.btn{padding:9px 12px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="top"><div class="eyebrow">Phim hoạt hình kể chuyện · 3 phút</div><h1>Người dẫn đường</h1><p>Một câu chuyện nhỏ về sự quan tâm, lắng nghe và tình cảm thầy trò.</p></header>
+    <section id="stage" class="stage scene-1" aria-label="Sân khấu hoạt hình">
+      <div class="sun"></div><div class="cloud"></div><div class="backdrop"><div id="board" class="board">Tri ân thầy cô<br>Người cha, người mẹ thứ hai của chúng em!</div><div class="ground"></div><div class="floor"></div></div>
+      <div class="scene-tag" id="sceneTag">CẢNH 1 · LỜI NHẮN NHỦ</div>
+      <div class="character teacher" id="teacher"><div class="person"><div class="hair long"></div><div class="head"><i class="eye left"></i><i class="eye right"></i><i class="smile"></i></div><div class="arm"></div><div class="arm right"></div><div class="dress"></div><div class="person-label" id="teacherLabel">Cô giáo</div></div></div>
+      <div class="character teacher male glasses" id="manTeacher"><div class="person"><div class="hair"></div><div class="head"><i class="eye left"></i><i class="eye right"></i><i class="smile"></i></div><div class="arm"></div><div class="arm right"></div><div class="torso blue"><div class="tie"></div></div><div class="legs"></div><div class="person-label">Thầy giáo</div></div></div>
+      <div class="character student" id="student"><div class="person"><div class="hair"></div><div class="head"><i class="eye left"></i><i class="eye right"></i><i class="smile"></i></div><div class="arm"></div><div class="arm right"></div><div class="torso"><div class="scarf"></div></div><div class="legs"></div><div class="person-label">Học sinh</div></div></div>
+      <div class="desk"></div><div class="bench"></div><div class="flowers" aria-hidden="true">💐 🌷 💐</div><div class="heart" aria-hidden="true">♥</div>
+      <div class="subtitle" id="subtitle" aria-live="polite">Nhấn “Phát phim” để bắt đầu câu chuyện.</div>
+    </section>
+    <section class="controls" aria-label="Điều khiển phim">
+      <div class="button-row"><button class="btn primary" id="playBtn">▶ Phát phim</button><button class="btn" id="restartBtn">↺ Phát lại</button><button class="btn" id="prevBtn">← Trước</button><button class="btn" id="nextBtn">Tiếp →</button><span class="time" id="time">00:00 / 03:00</span></div>
+      <input class="range" id="timeline" type="range" min="0" max="180" value="0" step="0.1" aria-label="Tua đến thời điểm trong phim">
+      <p class="hint">18 đoạn thoại · mỗi đoạn 10 giây · phụ đề tiếng Việt · hoạt hình minh họa bằng CSS</p>
+    </section>
+    <footer class="credits">Bản hoạt hình chạy trực tiếp trên trình duyệt; không cần tải hình ảnh hay thư viện ngoài.</footer>
+  </main>
+<script>
+  const scenes = [
+    {tag:'CẢNH 1 · LỜI NHẮN NHỦ', speaker:'Cô giáo', text:'Các em ạ, cô biết đôi khi các em còn ham chơi, đôi khi chưa hoàn thành bài tập.', type:'class'},
+    {tag:'CẢNH 1 · LỜI NHẮN NHỦ', speaker:'Cô giáo', text:'Cô không trách các em đâu, vì cô biết các em vẫn đang lớn, vẫn cần thời gian để trưởng thành.', type:'comfort'},
+    {tag:'CẢNH 1 · LỜI NHẮN NHỦ', speaker:'Cô giáo', text:'Nhưng cô tin rằng, chỉ cần mỗi ngày cố gắng thêm một chút, các em sẽ làm được nhiều điều tuyệt vời lắm nhé!', type:'class'},
+    {tag:'CẢNH 2 · ĐÚNG GIỜ', speaker:'Thầy giáo', text:'Con đến trường muộn hôm nay chắc là có lý do phải không? Thầy không trách con đâu.', type:'gate'},
+    {tag:'CẢNH 2 · ĐÚNG GIỜ', speaker:'Thầy giáo', text:'Nhưng con biết không, đến lớp đúng giờ là cách con thể hiện sự trân trọng thời gian của chính mình.', type:'gate'},
+    {tag:'CẢNH 2 · ĐÚNG GIỜ', speaker:'Thầy giáo', text:'Và đó cũng là cách con thể hiện sự tôn trọng với thầy cô và bạn bè trong lớp. Thầy tin con sẽ làm tốt hơn nhé!', type:'gate'},
+    {tag:'CẢNH 3 · LẮNG NGHE', speaker:'Học sinh', text:'Thưa cô… hôm nay em thấy buồn lắm. Ở nhà ba mẹ vừa la mắng em, em biết họ chỉ muốn tốt cho em thôi.', type:'alone'},
+    {tag:'CẢNH 3 · LẮNG NGHE', speaker:'Học sinh', text:'Nhưng em vẫn cảm thấy áp lực quá. Em muốn nói ra nhưng không biết chia sẻ với ai…', type:'alone'},
+    {tag:'CẢNH 3 · LẮNG NGHE', speaker:'Học sinh', text:'Em sợ mọi người sẽ nghĩ em không ngoan… Em chỉ mong có ai đó lắng nghe em một chút thôi.', type:'alone'},
+    {tag:'CẢNH 4 · CÔ Ở BÊN', speaker:'Cô giáo', text:'Đến đây với cô nào con ạ. Ai cũng có lúc cảm thấy mọi thứ không dễ dàng đâu con.', type:'comfort'},
+    {tag:'CẢNH 4 · CÔ Ở BÊN', speaker:'Cô giáo', text:'Ba mẹ có thể đôi khi chưa hiểu hết con, nhưng ở trường lớp, cô luôn ở đây lắng nghe con. Bất cứ lúc nào cũng được nhé!', type:'comfort'},
+    {tag:'CẢNH 4 · CÔ Ở BÊN', speaker:'Cô giáo', text:'Nếu có điều gì chưa vui, hãy nói ra, chúng ta sẽ cùng giải quyết. Cô luôn bên cạnh con!', type:'comfort'},
+    {tag:'CẢNH 5 · BÀI HỌC YÊU THƯƠNG', speaker:'Học sinh', text:'Trước đây em cứ nghĩ thầy cô chỉ đến trường để dạy chữ và giao bài tập thôi.', type:'class'},
+    {tag:'CẢNH 5 · BÀI HỌC YÊU THƯƠNG', speaker:'Học sinh', text:'Nhưng càng lớn em càng hiểu: thầy cô còn dạy chúng em biết yêu thương, biết chịu trách nhiệm, biết đứng lên sau khi vấp ngã.', type:'class'},
+    {tag:'CẢNH 5 · BÀI HỌC YÊU THƯƠNG', speaker:'Học sinh', text:'Khi em sai, thầy cô chỉ bảo. Khi em khó, thầy cô giúp đỡ. Thầy cô luôn chỉ cho chúng em con đường đúng đắn nhất!', type:'class'},
+    {tag:'CẢNH 6 · TRI ÂN', speaker:'Tất cả học sinh', text:'Cảm ơn thầy cô! Thầy cô không phải cha mẹ ruột, nhưng yêu thương và quan tâm chúng em không kém gì gia đình.', type:'thanks'},
+    {tag:'CẢNH 6 · TRI ÂN', speaker:'Tất cả học sinh', text:'Thầy cô là người cha thứ hai, người mẹ thứ hai của chúng con. Là người dẫn đường tận tâm nhất mà chúng con từng biết.', type:'thanks'},
+    {tag:'CẢNH 6 · TRI ÂN', speaker:'Tất cả học sinh', text:'Chúc thầy cô luôn khỏe mạnh và hạnh phúc! Chúng con yêu thầy cô nhiều lắm!', type:'thanks'}
+  ];
+  const stage=document.getElementById('stage'), subtitle=document.getElementById('subtitle'), tag=document.getElementById('sceneTag'), timeline=document.getElementById('timeline'), time=document.getElementById('time'), playBtn=document.getElementById('playBtn');
+  const teacher=document.getElementById('teacher'), manTeacher=document.getElementById('manTeacher'), student=document.getElementById('student');
+  let current=0, playing=false, startedAt=0, elapsed=0, frame;
+  const fmt=n=>{const s=Math.floor(n);return `${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`};
+  function layout(i){const s=scenes[i]; current=i; tag.textContent=s.tag; subtitle.textContent=`${s.speaker}: “${s.text}”`;
+    stage.className=`stage scene-${Math.floor(i/3)+1}`;
+    const positions={class:[25,58,43],comfort:[23,67,48],gate:[21,67,49],alone:[-30,68,48],thanks:[11,42,73]};
+    let p=positions[s.type]||positions.class;
+    teacher.style.left=p[0]+'%';manTeacher.style.left=(s.type==='thanks'?34: p[1])+'%';student.style.left=p[2]+'%';
+    teacher.style.opacity=(s.type==='gate'||s.type==='alone')?'.18':'1';manTeacher.style.opacity=(s.type==='gate'||s.type==='thanks'||(i>=12&&i<=14))?'1':'.15';
+    student.style.opacity=s.type==='alone'?'1':'1';
+    teacher.style.transform=s.type==='comfort'?'scale(1.08)':'scale(1)';manTeacher.style.transform=s.type==='gate'?'scale(1.06)':'scale(1)';
+    document.querySelector('.flowers').style.left=s.type==='thanks'?'50%':'50%';
+    document.getElementById('teacherLabel').textContent=s.type==='thanks'?'Cô giáo':'Cô giáo';
+  }
+  function update(){if(!playing)return;elapsed=Math.min(180,(performance.now()-startedAt)/1000);timeline.value=elapsed;time.textContent=`${fmt(elapsed)} / 03:00`;const idx=Math.min(17,Math.floor(elapsed/10));if(idx!==current)layout(idx);if(elapsed>=180){playing=false;playBtn.textContent='▶ Phát lại';subtitle.textContent='Cảm ơn thầy cô vì luôn yêu thương và dìu dắt chúng em!';return}frame=requestAnimationFrame(update)}
+  function play(){if(elapsed>=180)elapsed=0;playing=true;startedAt=performance.now()-elapsed*1000;playBtn.textContent='⏸ Tạm dừng';layout(Math.min(17,Math.floor(elapsed/10)));cancelAnimationFrame(frame);frame=requestAnimationFrame(update)}
+  function pause(){playing=false;cancelAnimationFrame(frame);playBtn.textContent='▶ Tiếp tục';}
+  playBtn.addEventListener('click',()=>playing?pause():play());
+  document.getElementById('restartBtn').addEventListener('click',()=>{elapsed=0;timeline.value=0;time.textContent='00:00 / 03:00';layout(0);play()});
+  document.getElementById('prevBtn').addEventListener('click',()=>{elapsed=Math.max(0,(current-1)*10);timeline.value=elapsed;time.textContent=`${fmt(elapsed)} / 03:00`;layout(Math.floor(elapsed/10));if(playing){startedAt=performance.now()-elapsed*1000}});
+  document.getElementById('nextBtn').addEventListener('click',()=>{elapsed=Math.min(170,(current+1)*10);timeline.value=elapsed;time.textContent=`${fmt(elapsed)} / 03:00`;layout(Math.floor(elapsed/10));if(playing)startedAt=performance.now()-elapsed*1000});
+  timeline.addEventListener('input',()=>{elapsed=Number(timeline.value);time.textContent=`${fmt(elapsed)} / 03:00`;layout(Math.min(17,Math.floor(elapsed/10)));if(playing)startedAt=performance.now()-elapsed*1000});
+  layout(0);
+</script>
+</body>
+</html>
